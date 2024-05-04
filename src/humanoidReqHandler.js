@@ -2,7 +2,7 @@ const fs = require("fs");
 const rpn = require("request-promise-native");
 const URL = require("url-parse");
 const Response = require("./response");
-const zlib = require('zlib');
+const zlib = require('node:zlib');
 
 
 class HumanoidReqHandler {
