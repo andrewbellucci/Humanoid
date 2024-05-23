@@ -67,7 +67,7 @@ class HumanoidReqHandler {
 		return headers;
 	}
 	
-	async sendRequest(url, method=undefined, data=undefined, headers=undefined, dataType="form") {
+	async sendRequest(url, method=undefined, data=undefined, headers=undefined, dataType="form", proxy=undefined) {
 		// Sanitize parameters
 		let parsedURL = this._parseUrl(url);
 		let isSessionChallenged = false;
@@ -79,6 +79,7 @@ class HumanoidReqHandler {
 		let currConfig = {...this.config};
 		currConfig.headers = headers;
 		currConfig.method = method;
+		currConfig.proxy = proxy;
 		currConfig = data !== undefined ? this._getConfForMethod(method, currConfig, data, dataType) : currConfig;
 		
 		// Send the request
